@@ -3,6 +3,9 @@
 
 #include "../../../src/contents.hh"
 
+namespace vick {
+namespace join {
+
 /*!
  * \file join.hh
  *
@@ -14,5 +17,8 @@
  */
 boost::optional<std::shared_ptr<change> >
 join_two_lines(contents& contents, boost::optional<int> unused = boost::none);
+
+}
+}
 
 #endif

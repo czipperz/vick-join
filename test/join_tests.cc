@@ -3,6 +3,9 @@
 #include "../../../test/catch.hpp"
 #include "../src/join.hh"
 
+using namespace vick;
+using namespace vick::join;
+
 TEST_CASE("join_two_lines") {
     contents contents;
     contents.push_back("hi man");

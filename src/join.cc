@@ -1,6 +1,9 @@
 #include "../../../src/contents.hh"
 #include "../../../src/show_message.hh"
 
+namespace vick {
+namespace join {
+
 struct join_c : public change {
     const move_t y, x;
     join_c(const contents& contents) : y(contents.y), x(contents.cont[y].size())
@@ -38,4 +41,7 @@ boost::optional<std::shared_ptr<change> > join_two_lines(contents& contents,
     std::shared_ptr<change> join = std::make_shared<join_c>(contents);
     join->redo(contents);
     return join;
+}
+
+}
 }
