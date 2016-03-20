@@ -13,7 +13,8 @@ TEST_CASE("join_two_lines") {
 
     initscr();
     auto change = join_two_lines(contents);
-    CHECK(contents.cont[0] == "hi man" "bye man");
+    CHECK(contents.cont[0] == "hi man"
+                              "bye man");
     CHECK(contents.cont.size() == 1);
 
     CHECK(change);
@@ -36,18 +37,23 @@ TEST_CASE("join_two_lines: join lines testing") {
     initscr();
     auto first = join_two_lines(contents);
     auto second = join_two_lines(contents);
-    CHECK(contents.cont[1] == "goodbye" "wow" "vick");
+    CHECK(contents.cont[1] == "goodbye"
+                              "wow"
+                              "vick");
     CHECK(contents.cont.size() == 2);
 
     CHECK(second);
-    if(!second) goto end;
+    if (!second)
+        goto end;
     second.get()->undo(contents);
-    CHECK(contents.cont[1] == "goodbye" "wow");
+    CHECK(contents.cont[1] == "goodbye"
+                              "wow");
     CHECK(contents.cont[2] == "vick");
     CHECK(contents.cont.size() == 3);
 
     CHECK(first);
-    if(!first) goto end;
+    if (!first)
+        goto end;
     first.get()->undo(contents);
     CHECK(contents.cont[1] == "goodbye");
     CHECK(contents.cont[2] == "wow");
@@ -71,35 +77,44 @@ TEST_CASE("join_two_lines: undo testing") {
     auto second = join_two_lines(contents);
 
     CHECK(contents.cont[0] == "hello");
-    CHECK(contents.cont[1] == "goodbye" "wow" "vick");
+    CHECK(contents.cont[1] == "goodbye"
+                              "wow"
+                              "vick");
     CHECK(contents.cont.size() == 2);
 
     CHECK(second);
-    if(!second) goto end;
+    if (!second)
+        goto end;
     second.get()->undo(contents);
     CHECK(contents.cont[0] == "hello");
-    CHECK(contents.cont[1] == "goodbye" "wow");
+    CHECK(contents.cont[1] == "goodbye"
+                              "wow");
     CHECK(contents.cont[2] == "vick");
     CHECK(contents.cont.size() == 3);
 
     {
         contents.y = 0;
         auto third = join_two_lines(contents);
-        CHECK(contents.cont[0] == "hello" "goodbye" "wow");
+        CHECK(contents.cont[0] == "hello"
+                                  "goodbye"
+                                  "wow");
         CHECK(contents.cont[1] == "vick");
         CHECK(contents.cont.size() == 2);
 
         CHECK(third);
-        if(!third) goto end;
+        if (!third)
+            goto end;
         third.get()->undo(contents);
         CHECK(contents.cont[0] == "hello");
-        CHECK(contents.cont[1] == "goodbye" "wow");
+        CHECK(contents.cont[1] == "goodbye"
+                                  "wow");
         CHECK(contents.cont[2] == "vick");
         CHECK(contents.cont.size() == 3);
     }
 
     CHECK(first);
-    if(!first) goto end;
+    if (!first)
+        goto end;
     first.get()->undo(contents);
     CHECK(contents.cont[0] == "hello");
     CHECK(contents.cont[1] == "goodbye");

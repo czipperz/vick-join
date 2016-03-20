@@ -9,15 +9,17 @@ namespace join {
 /*!
  * \file join.hh
  *
- * \brief Combines the line at ``contents.y`` with that at ``contents.y + 1``.
+ * \brief Combines the line at ``contents.y`` with that at
+ * ``contents.y + 1``.
  */
 
 /*!
- * \brief Combines the line at ``contents.y`` with that at ``contents.y + 1``.
+ * \brief Combines the line at ``contents.y`` with that at
+ * ``contents.y + 1``.
  */
 boost::optional<std::shared_ptr<change> >
-join_two_lines(contents& contents, boost::optional<int> unused = boost::none);
-
+join_two_lines(contents& contents,
+               boost::optional<int> unused = boost::none);
 }
 }
 
