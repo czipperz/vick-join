@@ -1,6 +1,6 @@
 #include <ncurses.h>
 
-#include "../../../test/catch.hpp"
+#include "catch.hpp"
 #include "../src/join.hh"
 
 using namespace vick;
