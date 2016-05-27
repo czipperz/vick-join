@@ -13,7 +13,9 @@ struct join_c : public change {
     join_c(const contents& contents)
         : y(contents.y)
         , x(contents.cont[y].size()) {}
-    virtual bool is_overriding() override { return true; }
+    virtual bool is_overriding() const noexcept override {
+        return true;
+    }
     virtual void undo(contents& contents) override {
         contents.cont.insert(contents.cont.begin() + y + 1,
                              contents.cont[y].substr(x));
