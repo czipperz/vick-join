@@ -4,8 +4,8 @@
 
 #include <ncurses.h>
 
-#include "catch.hpp"
 #include "../src/join.hh"
+#include "catch.hpp"
 
 using namespace vick;
 using namespace vick::join;
