@@ -4,7 +4,7 @@
 
 #include "contents.hh"
 #include "show_message.hh"
-#include "join.hh"
+#include "../lib.hh"
 
 namespace vick {
 namespace join {

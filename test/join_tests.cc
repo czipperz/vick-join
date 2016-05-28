@@ -4,7 +4,7 @@
 
 #include <ncurses.h>
 
-#include "../src/join.hh"
+#include "../lib.hh"
 #include "catch.hpp"
 
 using namespace vick;
