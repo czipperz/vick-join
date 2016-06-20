@@ -15,7 +15,6 @@ TEST_CASE("join_two_lines") {
     contents.push_back("hi man");
     contents.push_back("bye man");
 
-    initscr();
     auto change = join_two_lines(contents);
     CHECK(contents.cont[0] == "hi man"
                               "bye man");
@@ -27,7 +26,6 @@ TEST_CASE("join_two_lines") {
     CHECK(contents.cont[0] == "hi man");
     CHECK(contents.cont[1] == "bye man");
     CHECK(contents.cont.size() == 2);
-    endwin();
 }
 
 TEST_CASE("join_two_lines: join lines testing") {
@@ -38,7 +36,6 @@ TEST_CASE("join_two_lines: join lines testing") {
     contents.push_back("vick");
     contents.y = 1;
 
-    initscr();
     auto first = join_two_lines(contents);
     auto second = join_two_lines(contents);
     CHECK(contents.cont[1] == "goodbye"
@@ -63,8 +60,7 @@ TEST_CASE("join_two_lines: join lines testing") {
     CHECK(contents.cont[2] == "wow");
     CHECK(contents.cont[3] == "vick");
 
-end:
-    endwin();
+end:;
 }
 
 TEST_CASE("join_two_lines: undo testing") {
@@ -74,7 +70,6 @@ TEST_CASE("join_two_lines: undo testing") {
     contents.push_back("wow");
     contents.push_back("vick");
 
-    initscr();
     contents.y = 1;
     auto first = join_two_lines(contents);
     contents.y = 1;
@@ -126,6 +121,5 @@ TEST_CASE("join_two_lines: undo testing") {
     CHECK(contents.cont[3] == "vick");
     CHECK(contents.cont.size() == 4);
 
-end:
-    endwin();
+end:;
 }
