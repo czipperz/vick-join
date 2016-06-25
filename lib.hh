@@ -11,7 +11,7 @@ namespace vick {
 namespace join {
 
 /*!
- * \file join.hh
+ * \file vick-join/lib.hh
  *
  * \brief Combines the line at ``contents.y`` with that at
  * ``contents.y + 1``.
