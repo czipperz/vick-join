@@ -18,13 +18,15 @@ struct join_c : public change {
         return true;
     }
     virtual void undo(contents& contents) override {
-        contents.cont.insert(contents.cont.begin() + y + 1,
+        contents.cont.insert(contents.cont.begin() +
+                                 static_cast<std::ptrdiff_t>(y) + 1,
                              contents.cont[y].substr(x));
         contents.cont[y] = contents.cont[y].substr(0, x);
     }
     virtual void redo(contents& contents) override {
         contents.cont[y] += contents.cont[y + 1];
-        contents.cont.erase(contents.cont.begin() + y + 1);
+        contents.cont.erase(contents.cont.begin() +
+                            static_cast<std::ptrdiff_t>(y) + 1);
     }
     virtual std::shared_ptr<change>
     regenerate(const contents& contents) const override {
