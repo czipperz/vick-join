@@ -34,11 +34,11 @@ struct join_c : public change {
     }
 };
 
-boost::optional<std::shared_ptr<change> >
+std::shared_ptr<change>
 join_two_lines(contents& contents, boost::optional<int>) {
     if (contents.y >= contents.cont.size() - 1) {
         show_message("Can't join lines past end");
-        return boost::none;
+        return nullptr;
     }
     std::shared_ptr<change> join = std::make_shared<join_c>(contents);
     join->redo(contents);
